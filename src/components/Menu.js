@@ -20,7 +20,7 @@ export class Menu extends Component {
                         if (self.state.focused == index) {
                             style = 'active';
                         }
-                        console.log(tos[index], index);
+                        
                         return (
                             <Link style={{ textDecoration: 'none', color: 'black' }} tag={Link} exact to={tos[index]}>
                                 <li className={style} onClick={self.clicked.bind(self, index)}>{m}</li></Link>
