@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Menu.css';
+import VINDecoder from './VINDecoder.js';
 
 export class Menu extends Component {
     static displayName = Menu.name;
@@ -11,7 +12,7 @@ export class Menu extends Component {
 
     render() {
         var self = this;
-        var tos = ['/', '/charts', '/info', '/login'];
+        var tos = ['/', '/vin-decoder', '/info', '/login'];
         return (
             <div>
                 <ul>

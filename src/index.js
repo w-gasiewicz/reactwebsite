@@ -11,7 +11,7 @@ const rootElement = document.getElementById('root');
 
 ReactDOM.render(
   <BrowserRouter basename={baseUrl}>
-    <Menu items={['Home', 'Charts', 'Info']} />
+    <Menu items={['Home', 'VIN decoder', 'Info']} />
     <App />
   </BrowserRouter>,
   rootElement);
