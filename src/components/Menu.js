@@ -12,7 +12,7 @@ export class Menu extends Component {
 
     render() {
         var self = this;
-        var tos = ['/', '/vin-decoder', '/info', '/login'];
+        var tos = ['/reactwebsite', '/vin-decoder', '/info', '/login'];
         return (
             <div>
                 <ul>

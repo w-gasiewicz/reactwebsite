@@ -11,7 +11,7 @@ class App extends Component {
   render () {
     return (
             <div className= "test">
-                <Route exact path='/' component={Login} />
+                <Route exact path='/reactwebsite' component={Login} />
                 <Route path='/vin-decoder' component={VINDecoder} />
             </div>
     );
