@@ -3,12 +3,13 @@ import '../styles/Login.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Alert from 'react-bootstrap/Alert';
-
+import LoggedIn from './LoggedIn.js';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {
     super(props)
-    this.state = { username: '', password: '', showAllert: false }
+    this.state = { username: '', password: '', showAllert: false, loggedIn: false }
     this.handleChangeUsername = this.handleChangeUsername.bind(this);
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.handleClickLogin = this.handleClickLogin.bind(this);
@@ -23,14 +24,15 @@ class Login extends Component {
   handleClickLogin(e) {
     e.preventDefault();
     if (this.state.username == 'test' && this.state.password == 'test') {
-      this.setState({ showAllert: false });
+      this.setState({ showAllert: false, loggedIn: true });
     }
     else
-      this.setState({ showAllert: true });
+      this.setState({ showAllert: true, loggedIn: false });
   }
   setShow(e) {
     this.setState({ showAllert: e });
   }
+
   render() {
     return (
       <div className="login-container">
@@ -55,13 +57,18 @@ class Login extends Component {
                 <input type="text" className="form-control" placeholder="Password" onChange={this.handleChangePassword} />
               </div>
               <button type="button" className="btn btn-secondary btn-block" onClick={this.handleClickLogin}>LOGIN</button>
-              {this.state.showAllert ?
-                <Alert variant="danger" onClose={() => this.setShow(false)} dismissible>
-                  <Alert.Heading>You got an error! Bad username or password.</Alert.Heading>
-                  <p>
-                    Please try again.
+              {
+                this.state.showAllert ?
+                  <Alert variant="danger" onClose={() => this.setShow(false)} dismissible>
+                    <Alert.Heading>You got an error! Bad username or password.</Alert.Heading>
+                    <p>
+                      Please try again.
                   </p>
-                </Alert> : null}
+                  </Alert> : null}
+              {
+                this.state.loggedIn ?
+                  <Redirect to="/logged-in" /> : null
+              }
               <div className="message">
                 <div><input type="checkbox" /> Remember ME</div>
                 <div><a href="#">Forgot your password</a></div>

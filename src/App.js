@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
+import LoggedIn from './components/LoggedIn.js';
 import  Login  from './components/Login.js';
 import VINDecoder from './components/VINDecoder.js';
 
@@ -12,7 +13,8 @@ class App extends Component {
     return (
             <div className= "test">
                 <Route exact path='/reactwebsite' component={Login} />
-                <Route path='/vin-decoder' component={VINDecoder} />
+                <Route exact path='/vin-decoder' component={VINDecoder} />
+                <Route exact path='/logged-in' component={LoggedIn} />
             </div>
     );
   }

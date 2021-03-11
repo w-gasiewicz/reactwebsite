@@ -4,14 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import './styles/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { Menu } from './components/Menu';
 
 const baseUrl = document.getElementsByTagName('base')[0];
 const rootElement = document.getElementById('root');
 
 ReactDOM.render(
-  <BrowserRouter basename={baseUrl}>
-    <Menu items={['Home', 'VIN decoder', 'Info']} />
+  <BrowserRouter basename={baseUrl} >
     <App />
   </BrowserRouter>,
   rootElement);
