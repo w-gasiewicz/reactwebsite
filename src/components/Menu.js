@@ -4,7 +4,7 @@ import '../styles/Menu.css';
 
 export class Menu extends Component {
     static displayName = Menu.name;
-    state = { focused: 0 }
+    state = { focused: this.props.focused }
     clicked(index) {
         this.setState({ focused: index });
     }

@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 import LoggedIn from './components/LoggedIn.js';
-import  Login  from './components/Login.js';
+import LoginForm from './components/LoginForm.js';
 import VINDecoder from './components/VINDecoder.js';
+import  Info  from './components/Info.js';
 
 import './styles/App.css'
-
 class App extends Component {
   static displayName = App.name;
 
   render () {
     return (
-            <div className= "test">
-                <Route exact path='/reactwebsite' component={Login} />
+            <div>
+                <Route exact path='/reactwebsite' component={LoginForm} />
                 <Route exact path='/vin-decoder' component={VINDecoder} />
                 <Route exact path='/logged-in' component={LoggedIn} />
+                <Route exact path='/info' component={Info} />
             </div>
     );
   }

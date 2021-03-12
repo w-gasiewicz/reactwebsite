@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import '../styles/VINDecoder.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import Alert from 'react-bootstrap/Alert';
 import vinDecoder from 'vin-decode';
+import { Menu } from './Menu';
+import '../styles/Menu.css';
 
 class VINDecoder extends Component {
     constructor(props) {
@@ -32,25 +32,28 @@ class VINDecoder extends Component {
 
     render() {
         return (
-            <div className="login-container">
-                <div className="form-box">
-                    <div className="body-form">
-                        <form>
-                            <div className="input-group mb-3">
-                                <div className="input-group-prepend">
-                                    <span className="input-group-text"><i class="fa fa-code"></i></span>
+            <div>
+                <Menu items={['Log out', 'VIN decoder', 'Info']} focused = {1}/>
+                <div className="login-container">
+                    <div className="form-box">
+                        <div className="body-form">
+                            <form>
+                                <div className="input-group mb-3">
+                                    <div className="input-group-prepend">
+                                        <span className="input-group-text"><i class="fa fa-code"></i></span>
+                                    </div>
+                                    <input type="text" className="form-control-vin" placeholder="VIN number" maxLength={17} onChange={this.handleChangeVin} />
                                 </div>
-                                <input type="text" className="form-control-vin" placeholder="VIN number" maxLength={17} onChange={this.handleChangeVin} />
-                            </div>
-                            <button type="button" className="btn btn-secondary btn-block" onClick={this.handleClicDecode}>DECODE</button>
-                        </form>
-                        {this.state.showAllert ?
-                            <Alert variant="danger" onClose={() => this.setShow(false)} dismissible>
-                                <Alert.Heading>You got an error! Bad VIN number.</Alert.Heading>
-                                <p>
-                                    Please try again.
+                                <button type="button" className="btn btn-secondary btn-block" onClick={this.handleClicDecode}>DECODE</button>
+                            </form>
+                            {this.state.showAllert ?
+                                <Alert variant="danger" onClose={() => this.setShow(false)} dismissible>
+                                    <Alert.Heading>You got an error! Bad VIN number.</Alert.Heading>
+                                    <p>
+                                        Please try again.
                                 </p>
-                            </Alert> : null}
+                                </Alert> : null}
+                        </div>
                     </div>
                 </div>
             </div>

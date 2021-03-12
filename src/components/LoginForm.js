@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import '../styles/Login.css';
+import '../styles/LoginForm.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Alert from 'react-bootstrap/Alert';
-import LoggedIn from './LoggedIn.js';
 import { Redirect } from 'react-router-dom';
 
-class Login extends Component {
+class LoginForm extends Component {
   constructor(props) {
     super(props)
     this.state = { username: '', password: '', showAllert: false, loggedIn: false }
@@ -86,4 +85,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default LoginForm;

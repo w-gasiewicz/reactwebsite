@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { Menu } from './Menu';
-import VINDecoder from './VINDecoder.js'
-class LoggedIn extends Component {
+
+class Info extends Component {
     constructor(props) {
         super(props)
     }
 
     render() {
         return (
-            <VINDecoder/>
+            <Menu items={['Log out', 'VIN decoder', 'Info']} focused = {2}/>
         );
     }
 }
 
-export default LoggedIn;
+export default Info;
