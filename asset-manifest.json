@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/reactwebsite/static/css/main.527f9a90.chunk.css",
+    "main.css": "/reactwebsite/static/css/main.8ad5f39e.chunk.css",
     "main.js": "/reactwebsite/static/js/main.44f29fef.chunk.js",
     "main.js.map": "/reactwebsite/static/js/main.44f29fef.chunk.js.map",
     "runtime-main.js": "/reactwebsite/static/js/runtime-main.8c8d7daf.js",
@@ -12,7 +12,7 @@
     "static/js/3.94e924ef.chunk.js.map": "/reactwebsite/static/js/3.94e924ef.chunk.js.map",
     "index.html": "/reactwebsite/index.html",
     "static/css/2.aea77ea5.chunk.css.map": "/reactwebsite/static/css/2.aea77ea5.chunk.css.map",
-    "static/css/main.527f9a90.chunk.css.map": "/reactwebsite/static/css/main.527f9a90.chunk.css.map",
+    "static/css/main.8ad5f39e.chunk.css.map": "/reactwebsite/static/css/main.8ad5f39e.chunk.css.map",
     "static/js/2.6c7253a9.chunk.js.LICENSE.txt": "/reactwebsite/static/js/2.6c7253a9.chunk.js.LICENSE.txt",
     "static/media/all.min.css": "/reactwebsite/static/media/fa-solid-900.f4f93856.woff"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.8c8d7daf.js",
     "static/css/2.aea77ea5.chunk.css",
     "static/js/2.6c7253a9.chunk.js",
-    "static/css/main.527f9a90.chunk.css",
+    "static/css/main.8ad5f39e.chunk.css",
     "static/js/main.44f29fef.chunk.js"
   ]
 }
