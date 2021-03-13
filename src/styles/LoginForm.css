@@ -17,13 +17,16 @@
     opacity: 0.5;
     border-radius: 2%;
   }
-  
+
+ form{
+  max-height: 170px;  
+}
+
   .header-form {
     margin-bottom: 15px;
   }
   
   button {
-    margin-top: 40px;
     margin-bottom: 10px;
   }
   
