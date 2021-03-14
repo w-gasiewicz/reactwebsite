@@ -3,12 +3,12 @@ import '../styles/VINDecoder.css';
 import Alert from 'react-bootstrap/Alert';
 import vinDecoder from 'vin-decode';
 import { Menu } from './Menu';
-import '../styles/Menu.css';
+import DataModal from './DataModal.js';
 
 class VINDecoder extends Component {
     constructor(props) {
         super(props)
-        this.state = { vin: '', showAllert: false }
+        this.state = { vin: '', showAllert: false, showDataModal: false }
         this.handleChangeVin = this.handleChangeVin.bind(this);
         this.handleClicDecode = this.handleClicDecode.bind(this);
         this.setShow = this.setShow.bind(this);
@@ -20,11 +20,11 @@ class VINDecoder extends Component {
     handleClicDecode(e) {
         e.preventDefault();
         if (vinDecoder(this.state.vin)) {
-            console.log(vinDecoder(this.state.vin).split());
             console.log(vinDecoder(this.state.vin).decode());
+            this.setState({ showDataModal: true });
         }
         else
-            this.setState({ showAllert: true });
+            this.setState({ showAllert: true, showDataModal: false });
     }
     setShow(e) {
         this.setState({ showAllert: e });
@@ -53,6 +53,7 @@ class VINDecoder extends Component {
                                         Please try again.
                                 </p>
                                 </Alert> : null}
+                                {this.state.showDataModal ? <DataModal data = {vinDecoder(this.state.vin).decode()}/> : null}
                         </div>
                     </div>
                 </div>

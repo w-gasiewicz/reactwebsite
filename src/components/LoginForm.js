@@ -22,7 +22,7 @@ class LoginForm extends Component {
   }
   handleClickLogin(e) {
     e.preventDefault();
-    if (this.state.username == 'test' && this.state.password == 'test') {
+    if (this.state.username == 'test' && this.state.password == 'test!@#') {
       this.setState({ showAllert: false, loggedIn: true });
     }
     else

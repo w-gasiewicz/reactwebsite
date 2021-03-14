@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Menu } from './Menu';
 import VINDecoder from './VINDecoder.js'
 class LoggedIn extends Component {
     constructor(props) {
