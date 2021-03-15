@@ -12,16 +12,15 @@ class VINDecoder extends Component {
         this.handleChangeVin = this.handleChangeVin.bind(this);
         this.handleClicDecode = this.handleClicDecode.bind(this);
         this.setShow = this.setShow.bind(this);
+        this.setShowModal = this.setShowModal.bind(this);
     }
     handleChangeVin(e) {
         this.setState({ vin: e.target.value });
-        console.log(e.target.value);
     }
     handleClicDecode(e) {
-        e.preventDefault();
         if (vinDecoder(this.state.vin)) {
-            console.log(vinDecoder(this.state.vin).decode());
             this.setState({ showDataModal: true });
+            console.log('show modal ' + this.state.showDataModal);
         }
         else
             this.setState({ showAllert: true, showDataModal: false });
@@ -29,13 +28,16 @@ class VINDecoder extends Component {
     setShow(e) {
         this.setState({ showAllert: e });
     }
+    setShowModal(e) {
+        this.setState({ showDataModal: e });
+    }
 
     render() {
         return (
             <div>
-                <Menu items={['Log out', 'VIN decoder', 'Info']} focused = {1}/>
+                <Menu items={['Log out', 'VIN decoder', 'Info']} focused={1} />
                 <div className="login-container">
-                    <div className="form-box">
+                    <div className="form-box-vin">
                         <div className="body-form">
                             <form>
                                 <div className="input-group mb-3">
@@ -53,7 +55,8 @@ class VINDecoder extends Component {
                                         Please try again.
                                 </p>
                                 </Alert> : null}
-                                {this.state.showDataModal ? <DataModal data = {vinDecoder(this.state.vin).decode()}/> : null}
+                            {this.state.showDataModal ? <DataModal show = {this.state.showDataModal} data={vinDecoder(this.state.vin).decode()} /> : null}
+                            {console.log('render vin ' + this.state.showDataModal) }
                         </div>
                     </div>
                 </div>

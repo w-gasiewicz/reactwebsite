@@ -13,6 +13,7 @@ class LoginForm extends Component {
     this.handleChangePassword = this.handleChangePassword.bind(this);
     this.handleClickLogin = this.handleClickLogin.bind(this);
     this.setShow = this.setShow.bind(this);
+    this.handleButtonPressed = this.handleButtonPressed.bind(this);
   }
   handleChangeUsername(e) {
     this.setState({ username: e.target.value });
@@ -21,7 +22,6 @@ class LoginForm extends Component {
     this.setState({ password: e.target.value });
   }
   handleClickLogin(e) {
-    e.preventDefault();
     if (this.state.username == 'test' && this.state.password == 'test!@#') {
       this.setState({ showAllert: false, loggedIn: true });
     }
@@ -30,6 +30,10 @@ class LoginForm extends Component {
   }
   setShow(e) {
     this.setState({ showAllert: e });
+  }
+  handleButtonPressed(e) {
+    if (e.key === 'Enter')
+      this.handleClickLogin();
   }
 
   render() {
@@ -45,15 +49,15 @@ class LoginForm extends Component {
             <form>
               <div className="input-group mb-3">
                 <div className="input-group-prepend">
-                  <span className="input-group-text"><i class="fa fa-user"></i></span>
+                  <span className="input-group-text"><i className="fa fa-user"></i></span>
                 </div>
-                <input type="text" className="form-control" placeholder="Username" onChange={this.handleChangeUsername} />
+                <input type="text" className="form-control" placeholder="Username" onChange={this.handleChangeUsername} onKeyDown={this.handleButtonPressed} />
               </div>
               <div className="input-group mb-3">
                 <div className="input-group-prepend">
-                  <span className="input-group-text"><i class="fa fa-lock"></i></span>
+                  <span className="input-group-text"><i className="fa fa-lock"></i></span>
                 </div>
-                <input type="password" className="form-control" placeholder="Password" onChange={this.handleChangePassword} />
+                <input type="password" className="form-control" placeholder="Password" onChange={this.handleChangePassword} onKeyDown={this.handleButtonPressed} />
               </div>
               <button type="button" className="btn btn-secondary btn-block" onClick={this.handleClickLogin}>LOGIN</button>
               {
