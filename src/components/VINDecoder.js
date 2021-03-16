@@ -4,6 +4,7 @@ import Alert from 'react-bootstrap/Alert';
 import vinDecoder from 'vin-decode';
 import { Menu } from './Menu';
 import DataModal from './DataModal.js';
+import HamburgerMenu from './HamburgerMenu.js';
 
 class VINDecoder extends Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class VINDecoder extends Component {
     render() {
         return (
             <div>
-                <Menu items={['Log out', 'VIN decoder', 'Info']} focused={1} />
+            <HamburgerMenu/>
                 <div className="login-container">
                     <div className="form-box-vin">
                         <div className="body-form">

@@ -11,6 +11,11 @@ a.navbar-brand {
     html {
       font-size: 16px;
     }
+  }  
+  @media (min-width: 434px) {
+    html {
+      font-size: 14px;
+    }
   }
   
   .box-shadow {

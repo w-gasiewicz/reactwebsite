@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Alert from 'react-bootstrap/Alert';
 import { Redirect } from 'react-router-dom';
+import HamburgerMenu from './HamburgerMenu.js';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -70,7 +71,7 @@ class LoginForm extends Component {
                   </Alert> : null}
               {
                 this.state.loggedIn ?
-                  <Redirect to="/logged-in" /> : null
+                  <Redirect to="/vin-decoder" /> : null
               }
               <div className="message">
                 <div><input type="checkbox" /> Remember ME</div>

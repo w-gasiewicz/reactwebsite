@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Menu } from './Menu';
+import HamburgerMenu from './HamburgerMenu';
 
 class Info extends Component {
     constructor(props) {
@@ -8,7 +8,7 @@ class Info extends Component {
 
     render() {
         return (
-            <Menu items={['Log out', 'VIN decoder', 'Info']} focused = {2}/>
+            <HamburgerMenu/>
         );
     }
 }
