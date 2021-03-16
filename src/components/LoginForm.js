@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Alert from 'react-bootstrap/Alert';
 import { Redirect } from 'react-router-dom';
-import HamburgerMenu from './HamburgerMenu.js';
 
 class LoginForm extends Component {
   constructor(props) {

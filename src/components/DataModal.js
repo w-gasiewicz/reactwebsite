@@ -9,21 +9,17 @@ class DataModal extends Component {
         super(props)
         this.state = { data: props.data, show: true }
         this.handleClose = this.handleClose.bind(this);
-        console.log('modal constructor');
     }
 
     handleClose() {
         this.setState({ show: false });
-        console.log('handle close');
     }
     componentWillReceiveProps() {
-        console.log('modal update');
             this.setState({ show: true });
     }
     render() {
         return (
             <div>
-                {console.log('render modal ' + this.state.show)}
                 {this.state.show ?
                     <Modal.Dialog>
                         <Modal.Header closeButton>

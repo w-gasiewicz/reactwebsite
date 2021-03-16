@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../styles/VINDecoder.css';
 import Alert from 'react-bootstrap/Alert';
 import vinDecoder from 'vin-decode';
-import { Menu } from './Menu';
 import DataModal from './DataModal.js';
 import HamburgerMenu from './HamburgerMenu.js';
 
@@ -21,7 +20,6 @@ class VINDecoder extends Component {
     handleClicDecode(e) {
         if (vinDecoder(this.state.vin)) {
             this.setState({ showDataModal: true });
-            console.log('show modal ' + this.state.showDataModal);
         }
         else
             this.setState({ showAllert: true, showDataModal: false });
@@ -57,7 +55,6 @@ class VINDecoder extends Component {
                                 </p>
                                 </Alert> : null}
                             {this.state.showDataModal ? <DataModal show = {this.state.showDataModal} data={vinDecoder(this.state.vin).decode()} /> : null}
-                            {console.log('render vin ' + this.state.showDataModal) }
                         </div>
                     </div>
                 </div>

@@ -13,6 +13,7 @@ class App extends Component {
             <div>
                 <Route exact path='/reactwebsite' component={LoginForm} />
                 <Route exact path='/vin-decoder' component={VINDecoder} />
+                <Route exact path='/exchange-rates' component={Info} />
                 <Route exact path='/info' component={Info} />
             </div>
     );
