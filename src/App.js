@@ -3,6 +3,7 @@ import { Route } from 'react-router';
 import LoginForm from './components/LoginForm.js';
 import VINDecoder from './components/VINDecoder.js';
 import  Info  from './components/Info.js';
+import  ExchangeRates  from './components/ExchangeRates.js';
 
 import './styles/App.css'
 class App extends Component {
@@ -11,9 +12,10 @@ class App extends Component {
   render () {
     return (
             <div>
+                <Route exact path='/' component={LoginForm} />
                 <Route exact path='/reactwebsite' component={LoginForm} />
                 <Route exact path='/vin-decoder' component={VINDecoder} />
-                <Route exact path='/exchange-rates' component={Info} />
+                <Route exact path='/exchange-rates' component={ExchangeRates}/>
                 <Route exact path='/info' component={Info} />
             </div>
     );

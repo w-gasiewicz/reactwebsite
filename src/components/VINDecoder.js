@@ -13,11 +13,12 @@ class VINDecoder extends Component {
         this.handleClicDecode = this.handleClicDecode.bind(this);
         this.setShow = this.setShow.bind(this);
         this.setShowModal = this.setShowModal.bind(this);
+        this.handleButtonPressed = this.handleButtonPressed.bind(this);
     }
     handleChangeVin(e) {
         this.setState({ vin: e.target.value });
     }
-    handleClicDecode(e) {
+    handleClicDecode() {
         if (vinDecoder(this.state.vin)) {
             this.setState({ showDataModal: true });
         }
@@ -29,6 +30,10 @@ class VINDecoder extends Component {
     }
     setShowModal(e) {
         this.setState({ showDataModal: e });
+    }
+    handleButtonPressed(e) {
+      if (e.key === 'Enter')
+        this.handleClicDecode();
     }
 
     render() {
@@ -43,7 +48,7 @@ class VINDecoder extends Component {
                                     <div className="input-group-prepend">
                                         <span className="input-group-text"><i class="fa fa-code"></i></span>
                                     </div>
-                                    <input type="text" className="form-control-vin" placeholder="VIN number" maxLength={17} onChange={this.handleChangeVin} />
+                                    <input type="text" className="form-control-vin" placeholder="VIN number" maxLength={17} onChange={this.handleChangeVin} onKeyDown={this.handleButtonPressed} />
                                 </div>
                                 <button type="button" className="btn btn-secondary btn-block" onClick={this.handleClicDecode}>DECODE</button>
                             </form>
