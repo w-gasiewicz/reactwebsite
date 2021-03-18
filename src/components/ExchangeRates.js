@@ -1,5 +1,6 @@
 import React, { Component, Number } from 'react';
 import Moment from 'react-moment';
+import moment from 'moment';
 import LoadingAnimation from './LoadingAnimation.js';
 import HamburgerMenu from './HamburgerMenu.js';
 import '../styles/ExchangeRates.css';
@@ -40,7 +41,10 @@ const useSortableData = (items, config = null) => {
 };
 
 const ProductTable = (props) => {
-    const { items, requestSort, sortConfig } = useSortableData(props.products);
+    //    const { items, requestSort, sortConfig } = useSortableData(props.products);
+    
+    const arr = Object.keys(props.products.rates).map((key) => [key, props.products.rates[key]]);
+    console.log(arr);
     const getClassNamesFor = (name) => {
         if (!sortConfig) {
             return;
@@ -55,8 +59,8 @@ const ProductTable = (props) => {
                     <th>
                         <button
                             type="button"
-                            onClick={() => requestSort('date')}
-                            className={getClassNamesFor('date')}
+                        // onClick={() => requestSort('date')}
+                        // className={getClassNamesFor('date')}
                         >
                             Data
             </button>
@@ -64,26 +68,26 @@ const ProductTable = (props) => {
                     <th>
                         <button
                             type="button"
-                            onClick={() => requestSort('code')}
-                            className={getClassNamesFor('code')}
+                        // onClick={() => requestSort('code')}
+                        // className={getClassNamesFor('code')}
                         >
                             Kod
             </button>
                     </th>
-                    <th>
+                    {/* <th>
                         <button
                             type="button"
-                            onClick={() => requestSort('name')}
-                            className={getClassNamesFor('name')}
+                            // onClick={() => requestSort('name')}
+                            // className={getClassNamesFor('name')}
                         >
                             Nazwa
             </button>
-                    </th>
+                    </th> */}
                     <th>
                         <button
                             type="button"
-                            onClick={() => requestSort('value')}
-                            className={getClassNamesFor('value')}
+                        // onClick={() => requestSort('value')}
+                        // className={getClassNamesFor('value')}
                         >
                             Wartość
             </button>
@@ -91,12 +95,13 @@ const ProductTable = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {items.map((item) => (
-                    <tr key={item.code}>
+                {arr.map((item) => (
+                    <tr>
                         <td><Moment format="YYYY-MM-DD">{item.date}</Moment></td>
-                        <td>{item.code}</td>
-                        <td>{item.name}</td>
-                        <td>{item.value}</td>
+                        <td>{item[0]}</td>
+                        <td>{item[1]}</td>
+                        {/* <td>{item.name}</td>
+                        <td>{item.value}</td> */}
                     </tr>
                 ))}
             </tbody>
@@ -104,29 +109,27 @@ const ProductTable = (props) => {
     );
 };
 
+var date = new Date();
 export class ExchangeRates extends Component {
 
     constructor(props) {
         super(props);
         //this.state = props.state;        
-        this.state = { loading: true, date: Moment.date, precision: 2 };
+        this.state = { loading: true, date: moment(date).format('YYYY-MM-DD'), precision: 2, values: [] };
     }
 
     componentDidMount() {
         this.populateData();
     }
     componentWillReceiveProps(props) {
-        if (this.state.date != props.state.date || this.state.precision != props.state.precision) {
-            this.state = props.state;
-            this.populateData();
-        }
-        else {
-            this.setState({ loading: true, date: Moment.date, precision: 2 });
-            this.populateData();
-        }
+        // if (this.state.date != props.state.date || this.state.precision != props.state.precision) {
+        //     this.state = props.state;
+        // }
+        // else {
+        //     this.setState({ loading: true, date: moment(date).format('YYYY-MM-DD'), precision: 2 });
+        // }
     }
     render() {
-        console.log(this.state)
         let contents = this.state.loading
 
         if (contents)
@@ -137,17 +140,20 @@ export class ExchangeRates extends Component {
                 </div>
             );
 
-        this.populateData();
+        if (this.state.values == [])
+            this.populateData();
+
         return (
-            <div className="Test"> <ProductTable
-                products={this.state.values}
-            />
+            <div>
+                <HamburgerMenu />
+                <ProductTable
+                    products={this.state.values}
+                />
             </div>
         );
     }
     async populateData() {
-        var t = 'currency/' + this.state.date + '/' + this.state.precision;
-        const response = await fetch(t);
+        const response = await fetch('https://api.exchangeratesapi.io/' + this.state.date + '?base=PLN');
         const data = await response.json();
         this.setState({ values: data, loading: false });
     }
