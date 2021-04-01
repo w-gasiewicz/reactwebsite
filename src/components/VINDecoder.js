@@ -46,7 +46,7 @@ class VINDecoder extends Component {
                             <form>
                                 <div className="input-group mb-3">
                                     <div className="input-group-prepend">
-                                        <span className="input-group-text"><i class="fa fa-code"></i></span>
+                                        <span className="input-group-text"><i className="fa fa-code"></i></span>
                                     </div>
                                     <input type="text" className="form-control-vin" placeholder="VIN number" maxLength={17} onChange={this.handleChangeVin} onKeyDown={this.handleButtonPressed} />
                                 </div>

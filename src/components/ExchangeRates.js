@@ -42,9 +42,16 @@ const useSortableData = (items, config = null) => {
 
 const ProductTable = (props) => {
     //    const { items, requestSort, sortConfig } = useSortableData(props.products);
-    
+    if(props.products.rates == null)
+    return (
+        <div>
+            <HamburgerMenu />
+            < LoadingAnimation />
+        </div>
+    );
+
     const arr = Object.keys(props.products.rates).map((key) => [key, props.products.rates[key]]);
-    console.log(arr);
+
     const getClassNamesFor = (name) => {
         if (!sortConfig) {
             return;
@@ -122,12 +129,12 @@ export class ExchangeRates extends Component {
         this.populateData();
     }
     componentWillReceiveProps(props) {
-        // if (this.state.date != props.state.date || this.state.precision != props.state.precision) {
-        //     this.state = props.state;
-        // }
-        // else {
-        //     this.setState({ loading: true, date: moment(date).format('YYYY-MM-DD'), precision: 2 });
-        // }
+        if (this.state.date != props.state.date || this.state.precision != props.state.precision) {
+            this.state = props.state;
+        }
+        else {
+            this.setState({ loading: true, date: moment(date).format('YYYY-MM-DD'), precision: 2 });
+        }
     }
     render() {
         let contents = this.state.loading
@@ -153,7 +160,8 @@ export class ExchangeRates extends Component {
         );
     }
     async populateData() {
-        const response = await fetch('https://api.exchangeratesapi.io/' + this.state.date + '?base=PLN');
+        //const response = await fetch('https://api.exchangeratesapi.io/' + this.state.date + '?base=PLN');
+        const response = await fetch('https://api.ratesapi.io/api/' + this.state.date + '?base=PLN');
         const data = await response.json();
         this.setState({ values: data, loading: false });
     }

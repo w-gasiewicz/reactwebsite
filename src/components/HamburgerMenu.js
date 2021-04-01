@@ -116,7 +116,7 @@ class MenuItem extends React.Component {
       }
     }
     return (
-      <div style={styles.container}><Link style={{ textDecoration: 'none', color: 'black' }} tag={Link} exact to={this.props.tos}>
+      <div style={styles.container}><Link style={{ textDecoration: 'none', color: 'black' }} tag={Link} to={this.props.tos}>
         <div
           style={styles.menuItem}
           onMouseEnter={() => { this.handleHover(); }}
