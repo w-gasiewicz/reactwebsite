@@ -47,8 +47,8 @@ class HamburgerMenu extends React.Component {
         transition: 'filter 0.5s ease',
       },
     }
-    const menu = ['Log out', 'VIN decoder', 'Exchange rates', 'Info']
-    const tos = ['/reactwebsite', '/vin-decoder', '/exchange-rates', '/info'];
+    const menu = ['Log out', 'VIN decoder', 'Exchange rates', 'Info', 'Map']
+    const tos = ['/reactwebsite', '/vin-decoder', '/exchange-rates', '/info', '/map'];
     const menuItems = menu.map((val, index) => {
       return (
         <MenuItem

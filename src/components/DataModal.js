@@ -35,7 +35,7 @@ class DataModal extends Component {
                                 <td><b>Manufacturer:</b></td>
                                 <td>{this.state.data.manufacturer}</td>
                             </tr>
-                            <tr>
+                            <tr> 
                                 <td><b>Year:</b></td>
                                 <td>{this.state.data.year}</td>
                             </tr>

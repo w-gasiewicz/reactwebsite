@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/LoadingAnimation.css';
+
 export class LoadingAnimation extends Component {
     render() {
         return (
